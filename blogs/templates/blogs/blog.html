@@ -1,0 +1,13 @@
+{% extends 'blogs/base.html' %}
+
+{% block header %}
+  <h2>{{ blog }}</h2>
+{% endblock header %}
+
+
+{% block content %}
+  <blockquote>{{ blog.text }}</blockquote>
+  {% if blog.owner == request.user %}
+    <p><a href="{% url 'blogs:edit_blog' blog.id %}">edit blog</a></p>
+  {% endif %}
+{% endblock content %}
